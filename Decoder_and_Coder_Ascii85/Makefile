@@ -7,7 +7,7 @@ PAPKA = src
 PROJ_FILES = $(wildcard $(PAPKA)/*.cpp)
 OBJ_FILES = $(PROJ_FILES:.cpp=.o)
 
-TEST_PAPKA = tests
+TEST_PAPKA = gtests
 TEST_FILES = $(wildcard $(TEST_PAPKA)/*.cpp)
 TEST_OBJ_FILES = $(TEST_FILES:.cpp=.o)
 
