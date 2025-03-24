@@ -1,0 +1,56 @@
+name: ASCII85 Build & Test
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  build_and_test:
+    name: Сборка и тестирование
+    runs-on: ubuntu-24.04
+
+    steps:
+      # 1. Установка зависимостей
+      - name: Установка инструментов
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            libgtest-dev \
+            cmake
+
+      # 2. Установка Python с кэшированием
+      - name: Установка Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. Получение кода
+      - name: Получение кода
+        uses: actions/checkout@v4
+
+      # 4. Сборка
+      - name: Сборка проекта
+        run: bash build_ascii85.sh
+
+      # 5. Тестирование кодера
+      - name: Тестирование кодера ASCII85
+        run: bash test_coding_ascii85.sh
+
+      # 6. Тестирование декодера
+      - name: Тестирование декодера ASCII85
+        run: bash test_decoding_ascii85.sh
+
+      # 7. Сборка и запуск GTest
+      - name: Сборка тестов GTest
+        run: bash build_gtests.sh
+
+      - name: Запуск тестов GTest
+        run: bash test_gtests.sh
+
+      # 8. Тестирование coder и decoder с помощью python
+      - name: тестирование coder и decoder с помощью python
+        run: |
+          bash test_on_python.sh
