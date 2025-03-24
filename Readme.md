@@ -6,12 +6,15 @@ st128027@student.spbu.ru
 ##Description
 I made an coder and decoder for Ascii85
 ##Build main
-make main
+bash build_ascii85.sh
 ##Run main
-./main - для кодера
-./main -e - для кодера
-./main -d - для декодера
+bash test_coding_ascii85.sh - для кодера
+bash test_decoding_ascii85.sh- для декодера
 ##Build tests
-make tests
-#Run tests
-./tests
+bash build_dtests.sh
+##Run tests
+bash test_gtests.sh
+##Build test on python
+bash build_ascii85.sh
+##Run test on python
+bash test_on_python.sh
