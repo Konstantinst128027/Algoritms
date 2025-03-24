@@ -21,7 +21,7 @@ jobs:
             libgtest-dev \
             cmake
 
-      # 2. Установка Python с кэшированием
+      # 2. Установка Python
       - name: Установка Python 3.12
         uses: actions/setup-python@v5
         with:
