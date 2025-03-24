@@ -7,7 +7,11 @@ st128027@student.spbu.ru
 I made an coder and decoder for Ascii85
 ##Build main
 make main
-#Run main
+##Run main
 ./main - для кодера
 ./main -e - для кодера
 ./main -d - для декодера
+##Build tests
+make tests
+#Run tests
+./tests
